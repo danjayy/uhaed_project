@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <model name="classroom_chair">
+    <static>true</static>
+    <link name="link">
+      <!-- Seat -->
+      <visual name="seat_visual">
+        <pose>0 0 0.45 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.45 0.03</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.4 0.8 1</ambient>
+          <diffuse>0.2 0.4 0.8 1</diffuse>
+        </material>
+      </visual>
+      <collision name="seat_collision">
+        <pose>0 0 0.45 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.45 0.45 0.03</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Backrest -->
+      <visual name="backrest_visual">
+        <pose>-0.2 0 0.7 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03 0.45 0.5</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.4 0.8 1</ambient>
+          <diffuse>0.2 0.4 0.8 1</diffuse>
+        </material>
+      </visual>
+      <collision name="backrest_collision">
+        <pose>-0.2 0 0.7 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.03 0.45 0.5</size>
+          </box>
+        </geometry>
+      </collision>
+
+      <!-- Leg 1 -->
+      <visual name="leg1_visual">
+        <pose>0.15 0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="leg1_collision">
+        <pose>0.15 0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <!-- Leg 2 -->
+      <visual name="leg2_visual">
+        <pose>0.15 -0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="leg2_collision">
+        <pose>0.15 -0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <!-- Leg 3 -->
+      <visual name="leg3_visual">
+        <pose>-0.15 0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="leg3_collision">
+        <pose>-0.15 0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+      </collision>
+
+      <!-- Leg 4 -->
+      <visual name="leg4_visual">
+        <pose>-0.15 -0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1</ambient>
+          <diffuse>0.3 0.3 0.3 1</diffuse>
+        </material>
+      </visual>
+      <collision name="leg4_collision">
+        <pose>-0.15 -0.15 0.225 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.015</radius>
+            <length>0.45</length>
+          </cylinder>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+</sdf>

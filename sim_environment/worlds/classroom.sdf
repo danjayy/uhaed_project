@@ -1,0 +1,255 @@
+<?xml version="1.0"?>
+<sdf version="1.9">
+  <world name="classroom">
+    <!-- Physics -->
+    <physics name="1ms" type="ignored">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+    </physics>
+
+    <!-- Plugins -->
+    <plugin filename="gz-sim-physics-system" name="gz::sim::systems::Physics"></plugin>
+    <plugin filename="gz-sim-user-commands-system" name="gz::sim::systems::UserCommands"></plugin>
+    <plugin filename="gz-sim-scene-broadcaster-system" name="gz::sim::systems::SceneBroadcaster"></plugin>
+    <plugin filename="gz-sim-sensors-system" name="gz::sim::systems::Sensors">
+      <render_engine>ogre2</render_engine>
+    </plugin>
+
+    <!-- Lighting -->
+    <light type="directional" name="sun">
+      <cast_shadows>true</cast_shadows>
+      <pose>0 0 10 0 0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>
+
+    <!-- Ambient light -->
+    <light type="point" name="ambient_light">
+      <pose>0 0 3 0 0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+    </light>
+
+    <!-- Floor -->
+    <model name="ground_plane">
+      <static>true</static>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+            </plane>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>20 20</size>
+            </plane>
+          </geometry>
+          <material>
+            <ambient>0.8 0.8 0.8 1</ambient>
+            <diffuse>0.8 0.8 0.8 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Classroom Walls -->
+    <!-- Back Wall -->
+    <model name="back_wall">
+      <static>true</static>
+      <pose>-10 0 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 20 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 20 3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.85 1</ambient>
+            <diffuse>0.9 0.9 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Front Wall (with blackboard) -->
+    <model name="front_wall">
+      <static>true</static>
+      <pose>10 0 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 20 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 20 3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.85 1</ambient>
+            <diffuse>0.9 0.9 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Left Wall (solid) -->
+    <model name="left_wall">
+      <static>true</static>
+      <pose>0 -10 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 0.2 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 0.2 3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.85 1</ambient>
+            <diffuse>0.9 0.9 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Right Wall -->
+    <model name="right_wall">
+      <static>true</static>
+      <pose>0 10 1.5 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>20 0.2 3</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>20 0.2 3</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.9 0.9 0.85 1</ambient>
+            <diffuse>0.9 0.9 0.85 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- Blackboard at the front -->
+    <include>
+      <uri>model://blackboard</uri>
+      <name>blackboard</name>
+      <pose>9.8 0 0 0 0 3.14159</pose>
+    </include>
+
+    <!-- Desks and Chairs - Row 1 -->
+    <include>
+      <uri>model://classroom_desk</uri>
+      <name>desk1</name>
+      <pose>2 -3 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://classroom_chair</uri>
+      <name>chair1</name>
+      <pose>1 -3 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://classroom_desk</uri>
+      <name>desk2</name>
+      <pose>2 3 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://classroom_chair</uri>
+      <name>chair2</name>
+      <pose>1 3 0 0 0 0</pose>
+    </include>
+
+    <!-- Desks and Chairs - Row 2 -->
+    <include>
+      <uri>model://classroom_desk</uri>
+      <name>desk3</name>
+      <pose>-2 -3 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://classroom_chair</uri>
+      <name>chair3</name>
+      <pose>-3 -3 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://classroom_desk</uri>
+      <name>desk4</name>
+      <pose>-2 3 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://classroom_chair</uri>
+      <name>chair4</name>
+      <pose>-3 3 0 0 0 0</pose>
+    </include>
+
+    <!-- Desks and Chairs - Row 3 -->
+    <include>
+      <uri>model://classroom_desk</uri>
+      <name>desk5</name>
+      <pose>-6 -3 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://classroom_chair</uri>
+      <name>chair5</name>
+      <pose>-7 -3 0 0 0 0</pose>
+    </include>
+
+    <include>
+      <uri>model://classroom_desk</uri>
+      <name>desk6</name>
+      <pose>-6 3 0 0 0 0</pose>
+    </include>
+    <include>
+      <uri>model://classroom_chair</uri>
+      <name>chair6</name>
+      <pose>-7 3 0 0 0 0</pose>
+    </include>
+
+  </world>
+</sdf>
