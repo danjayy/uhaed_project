@@ -201,7 +201,7 @@ class ASLRecognitionNode(Node):
         
     def load_model(self):
         """Load the trained PyTorch model."""
-        model_path = os.path.join(self.package_dir, "best_asl_rgb_model.pth")
+        model_path = os.path.join(self.package_dir, "asl_rgb_model.pth")
         
         if not os.path.exists(model_path):
             self.get_logger().error(f"Model not found at: {model_path}")
