@@ -68,7 +68,7 @@ xhost +local:root && docker run \
 To run the gazebo simulation, simply launch: `ros2 launch sim_environment classroom.launch.py`
 
 ## Run ASL Detection
-To understand the architecture used to train the model in this project, check out this [article](linkedin link).
+To understand the architecture used to train the model in this project, check out this [article](https://www.linkedin.com/pulse/uhaed-understanding-human-gestures-aid-education-deaf-danjuma-zzlbe/?trackingId=HYIIXwzKrBlkqTkVv9rEAg%3D%3D).
 The ASL signs used in the [training dataset](https://www.kaggle.com/datasets/debashishsau/aslamerican-sign-language-aplhabet-dataset), which will be used with the `detection` package, have some discrepancies in certain letters with the popular ASL signs. For this reason, the signs used in the dataset are provided in the image below:
 ![training letters](detection/training_letters/letters.png)
 
